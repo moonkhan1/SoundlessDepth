@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     Animator _anim;
      public event System.Action<int> IsCollected;
      public event System.Action<int> IsHitted;
+     public event System.Action IsDead;
 
     void Start()
     {
@@ -76,6 +77,8 @@ public class PlayerScript : MonoBehaviour
         {
             if(_health == 0)
             {
+                IsDead?.Invoke();
+                
                 Destroy(this.gameObject);
             }
         }

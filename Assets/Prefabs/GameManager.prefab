@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea11238143d80cb46ad767a52de05eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainTheme: {fileID: 0}
+  _bubbleTheme: {fileID: 0}

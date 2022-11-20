@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public static EnemyManager Instance;
     [SerializeField] List<MedusaController> _medusas;
         [SerializeField] int _maxEnemyCount = 4;
 
@@ -11,10 +12,16 @@ public class EnemyManager : MonoBehaviour
         [SerializeField] int _maxPearlCount = 8;
         GameObject _gameManager;
         public bool CanSpawn => _maxEnemyCount > _medusas.Count;  
-        public bool CanSpawnPearl => _maxPearlCount > _pearls.Count;    
+        public bool CanSpawnPearl => _maxPearlCount > _pearls.Count;   
+
         
     void Awake()
+
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
             _medusas = new List<MedusaController>();
             _pearls = new List<CollectiableController>();
         }

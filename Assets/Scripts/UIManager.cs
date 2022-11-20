@@ -11,12 +11,11 @@ public class UIManager : MonoBehaviour
     GameObject _changeUI;
     [SerializeField] TMP_Text _collectiable;
      [SerializeField] TMP_Text _health;
+     [SerializeField] GameObject _restart;
 
     private void Awake() {
+
          _changeUI = GameObject.FindGameObjectWithTag("Player");
-    }
-    void Start()
-    {
 
         if (Instance == null)
         {
@@ -34,14 +33,18 @@ public class UIManager : MonoBehaviour
     {
         _changeUI.GetComponent<PlayerScript>().IsCollected += IncreaseCollectiable;
         _changeUI.GetComponent<PlayerScript>().IsHitted += DecreaseHealth;
+        _changeUI.GetComponent<PlayerScript>().IsDead += SetRestart;
     }
 
     
 
     private void OnDisable() 
     {
+        if(_changeUI == null) return;
+        
         _changeUI.GetComponent<PlayerScript>().IsCollected -= IncreaseCollectiable;
         _changeUI.GetComponent<PlayerScript>().IsHitted -= DecreaseHealth;
+        _changeUI.GetComponent<PlayerScript>().IsDead -= SetRestart;
     }
 
     private void IncreaseCollectiable(int collected)
@@ -52,6 +55,11 @@ public class UIManager : MonoBehaviour
     private void DecreaseHealth(int health)
     {
         _health.text = health.ToString();
+    }
+
+    private void SetRestart()
+    {
+       _restart.gameObject.SetActive(true);
     }
 
 }

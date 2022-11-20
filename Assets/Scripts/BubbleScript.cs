@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BubbleScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float _length;
+    public AnimationCurve myCurve;
+
     void Start()
     {
-        
-    }
+        // _length = GetComponent<SpriteRenderer>().bounds.size.;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    }
+    private void Update() {
+        transform.position = new Vector3(transform.position.x, myCurve.Evaluate((Time.time % myCurve.length)), transform.position.z);
+
     }
 }

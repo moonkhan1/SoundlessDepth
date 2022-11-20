@@ -22,13 +22,14 @@ public class SpawnerController : MonoBehaviour
     void Update()
     {
         _currentTime += Time.deltaTime;
+        
 
-        if (_currentTime > _maxTime && _enemyManager.GetComponent<EnemyManager>().CanSpawn )
+        if (_currentTime > _maxTime && EnemyManager.Instance.CanSpawn )
         {
             Spawn();
         }
 
-        if (_currentTime > _maxTime && _enemyManager.GetComponent<EnemyManager>().CanSpawnPearl )
+        if (_currentTime > _maxTime && EnemyManager.Instance.CanSpawnPearl )
         {
             SpawnPearl();
         }
