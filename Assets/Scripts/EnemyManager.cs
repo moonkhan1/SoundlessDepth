@@ -5,13 +5,18 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] List<MedusaController> _medusas;
-        [SerializeField] int _maxEnemyCount = 2;
+        [SerializeField] int _maxEnemyCount = 4;
+
+        [SerializeField] List<CollectiableController> _pearls;
+        [SerializeField] int _maxPearlCount = 8;
         GameObject _gameManager;
-        public bool CanSpawn => _maxEnemyCount > _medusas.Count;    
+        public bool CanSpawn => _maxEnemyCount > _medusas.Count;  
+        public bool CanSpawnPearl => _maxPearlCount > _pearls.Count;    
         
     void Awake()
         {
             _medusas = new List<MedusaController>();
+            _pearls = new List<CollectiableController>();
         }
         public void AddEnemy(MedusaController medusaController)
         {
@@ -22,5 +27,14 @@ public class EnemyManager : MonoBehaviour
         public void RemoveEnemy(MedusaController medusaController)
         {
             _medusas.Remove(medusaController);
+        }
+
+        public void AddPearl(CollectiableController pearl)
+        {
+            _pearls.Add(pearl);
+        }
+        public void RemovePearl(CollectiableController pearl)
+        {
+            _pearls.Remove(pearl);
         }
 }

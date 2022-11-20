@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - _medusa: {fileID: 5530523889818279895, guid: cc33dd7f8b63c5747914eff864f6f3d2, type: 3}
+  - _pearl: {fileID: 1814232987, guid: ce7d82226eaf9a0409a3e903756a9fe7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
