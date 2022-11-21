@@ -73,6 +73,8 @@ public class PlayerScript : MonoBehaviour
         // _transform.position += new Vector3(Time.deltaTime * _speed, Vertical, 0);
         }
 
+        
+
         public void DeadCheck()
         {
             if(_health == 0)
